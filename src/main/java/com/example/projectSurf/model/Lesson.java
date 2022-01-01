@@ -3,96 +3,86 @@ package com.example.projectSurf.model;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+
 @Entity
-@Table(name = "lesson")
 public class Lesson {
+    private Date date;
+    private Time time;
+    private int lesson_id;
+    private Instructor instructor;
+    private Student students;
+
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "lesson_id")
-    private Integer lesson_id;
-
-    @Column(name = "date")
-    private Date date;
-    @Column(name = "time")
-    private Time time;
-//    @Column(name = "id_instructor")
-//    private Integer id_instructor;
-//    @Column(name = "id_student")
-//    private Integer id_student;
-
-    @ManyToOne
-    private Student student;
-    @ManyToOne
-    private Instructor instructor;
-
-    Student getStudent() {
-        return student;
-    }
-
-    void setStudent(final Student student) {
-        this.student = student;
-    }
-
-    Instructor getInstructor() {
-        return instructor;
-    }
-
-    void setInstructor(final Instructor instructor) {
-        this.instructor = instructor;
-    }
-
-
-    public Lesson(){}
-
-    Student getStudents() {
-        return student;
-    }
-
-    void setStudents(final Student students) {
-        this.student = students;
-    }
-
-    Integer getLesson_id() {
+    public int getLesson_id() {
         return lesson_id;
     }
 
-    void setLesson_id(final Integer lesson_id) {
+    public void setLesson_id(final int lesson_id) {
         this.lesson_id = lesson_id;
     }
 
-//    Integer getId_instructor() {
-//        return id_instructor;
-//    }
-//
-//    void setId_instructor(final Integer id_instructor) {
-//        this.id_instructor = id_instructor;
-//    }
-//
-//    Integer getId_student() {
-//        return id_student;
-//    }
-//
-//    void setId_student(final Integer id_student) {
-//        this.id_student = id_student;
-//    }
-
-
-    Date getDate() {
+    @Basic
+    @Column(name = "date")
+    public Date getDate() {
         return date;
     }
 
-    void setDate(final Date date) {
+    public void setDate(final Date date) {
         this.date = date;
     }
 
-    Time getTime() {
+    @Basic
+    @Column(name = "time")
+    public Time getTime() {
         return time;
     }
 
-    void setTime(final Time time) {
+    public void setTime(final Time time) {
         this.time = time;
     }
 
 
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        final Lesson lesson = (Lesson) o;
+
+        if (lesson_id != lesson.lesson_id) return false;
+        if (date != null ? !date.equals(lesson.date) : lesson.date != null) return false;
+        if (time != null ? !time.equals(lesson.time) : lesson.time != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = date != null ? date.hashCode() : 0;
+        result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + lesson_id;
+        return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_instructor", referencedColumnName = "instructor_id")
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(final Instructor instructor) {
+        this.instructor = instructor;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_student", referencedColumnName = "student_id")
+    public Student getStudents() {
+        return students;
+    }
+
+    public void setStudents(final Student students) {
+        this.students = students;
+    }
 }
