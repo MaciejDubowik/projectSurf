@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 @Entity
+@Table(name = "lesson")
 public class Lesson {
     private Date date;
     private Time time;
@@ -12,8 +13,20 @@ public class Lesson {
     private Instructor instructor;
     private Student students;
 
+    public Lesson(){}
+
+    public Lesson(Date date, Time time, Instructor instructor, Student students) {
+        this.date = date;
+        this.time = time;
+        this.instructor = instructor;
+        this.students = students;
+    }
+
+    public Lesson(String lesson_student) {
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "lesson_id")
     public int getLesson_id() {
         return lesson_id;

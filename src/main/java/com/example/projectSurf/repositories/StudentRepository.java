@@ -1,4 +1,4 @@
-package com.example.projectSurf.repository;
+package com.example.projectSurf.repositories;
 
 import com.example.projectSurf.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;

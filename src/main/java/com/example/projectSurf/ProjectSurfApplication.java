@@ -1,9 +1,7 @@
 package com.example.projectSurf;
 
-import com.example.projectSurf.model.Lesson;
 import com.example.projectSurf.model.Student;
-import com.example.projectSurf.repository.LessonRepository;
-import com.example.projectSurf.repository.StudentRepository;
+import com.example.projectSurf.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

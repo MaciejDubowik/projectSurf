@@ -4,12 +4,14 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
+@Table(name = "instructor")
 public class Instructor {
     private int instructor_id;
     private String name;
     private Collection<Lesson> lessons;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "instructor_id")
     public int getInstructor_id() {
         return instructor_id;
