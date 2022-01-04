@@ -116,7 +116,7 @@ public class Student {
         return result;
     }
 
-    @OneToMany(mappedBy = "students", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "students", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public Collection<Lesson> getLessons() {
         return lessons;
     }

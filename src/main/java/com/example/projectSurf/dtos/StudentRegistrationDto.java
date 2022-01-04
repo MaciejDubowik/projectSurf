@@ -1,6 +1,8 @@
 package com.example.projectSurf.dtos;
 
 import com.example.projectSurf.model.Student;
+import org.springframework.stereotype.Component;
+
 
 public class StudentRegistrationDto {
 
