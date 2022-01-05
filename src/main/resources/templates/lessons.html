@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lessons</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<h1> siema </h1>
+<div class="form-content">
+    <div class="row">
+        <div class="col-md-6">
+
+            <form th:action="@{/lessons}" method="post" th:object="${lesson}">
+<!--                <div class="form-group">-->
+<!--                <div class="custom-control custom-radio custom-control-inline">-->
+<!--                    <input type="radio" id="option1" name="option1" class="custom-control-input" value="1" th:field="${lesson.getInstructor()}">-->
+<!--                    <label class="custom-control-label" for="option1">Option1</label>-->
+<!--                </div>-->
+<!--                <div class="custom-control custom-radio custom-control-inline">-->
+<!--                    <input type="radio" id="option2" name="option2" class="custom-control-input" value="2" th:field="${lesson.getInstructor()}">-->
+<!--                    <label class="custom-control-label" for="option2">Option2</label>-->
+<!--                </div>-->
+<!--                <div class="custom-control custom-radio custom-control-inline">-->
+<!--                    <input type="radio" id="option3" name="option3" class="custom-control-input" value="3" th:field="${lesson.getInstructor()}">-->
+<!--                    <label class="custom-control-label" for="option3">Option3</label>-->
+<!--                </div>-->
+<!--            </div>-->
+
+                <div class = "form-group">
+                    <label class = "control-label" for="student">
+                        First Name
+                    </label>
+                    <input id="student" class = "form-control" th:field="${lesson.student}" required autofocus/>
+                </div>
+                <div class = "form-group">
+                    <label class = "control-label" for="instructor">
+                        First Name
+                    </label>
+                    <input id="instructor" class = "form-control" th:field="${lesson.instructor}" required autofocus/>
+                </div>
+                <div class = "form-group">
+                    <label class = "control-label" for="date">
+                        Data
+                    </label>
+                    <input id="date" class = "form-control" th:field="${lesson.time}" required autofocus/>
+                </div>
+                <div class = "form-group">
+                    <label class = "control-label" for="time">
+                        godzina
+                    </label><input id="time" class = "form-control" th:field="${lesson.time}" required autofocus/>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" clas="btn btn-success">zapisz</button>
+                </div>
+
+            </form>
+
+
+        </div>
+        <button type="button" class="btnSubmit">Submit</button>
+    </div>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

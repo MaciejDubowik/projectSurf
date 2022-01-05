@@ -95,7 +95,7 @@ public class Lesson {
         return students;
     }
 
-    public void setStudents(final Student students) {
+    public void setStudents(Student students) {
         this.students = students;
     }
 }
