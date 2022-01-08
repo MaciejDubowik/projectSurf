@@ -7,7 +7,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class LessonBookingDto {
-    private Date date;
+    private String date;
     private String time;
     private Instructor instructor;
     private Student student;
@@ -15,18 +15,18 @@ public class LessonBookingDto {
     public LessonBookingDto() {
     }
 
-    public LessonBookingDto(Date date, String time, Instructor instructor, Student student) {
+    public LessonBookingDto(String date, String time, Instructor instructor, Student student) {
         this.date = date;
         this.time = time;
         this.instructor = instructor;
         this.student = student;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

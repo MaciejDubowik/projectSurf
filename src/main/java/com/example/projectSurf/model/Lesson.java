@@ -72,6 +72,17 @@ public class Lesson {
     }
 
     @Override
+    public String toString() {
+        return "Lesson{" +
+                "date=" + date +
+                ", time=" + time +
+                ", lesson_id=" + lesson_id +
+                ", instructor=" + instructor.getInstructor_id() +
+                ", students=" + students.getStudent_id() +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         int result = date != null ? date.hashCode() : 0;
         result = 31 * result + (time != null ? time.hashCode() : 0);

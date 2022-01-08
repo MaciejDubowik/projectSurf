@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <title>Lessons</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 </head>
 <body>
-<h1> siema </h1>
+<h1> Lekcja </h1>
 <div class="form-content">
     <div class="row">
         <div class="col-md-6">
@@ -27,24 +36,33 @@
 <!--                </div>-->
 <!--            </div>-->
 
-                <div class = "form-group">
-                    <label class = "control-label" for="student">
-                        First Name
-                    </label>
-                    <input id="student" class = "form-control" th:field="${lesson.student}" required autofocus/>
-                </div>
+
                 <div class = "form-group">
                     <label class = "control-label" for="instructor">
-                        First Name
+                        Insturktor
                     </label>
                     <input id="instructor" class = "form-control" th:field="${lesson.instructor}" required autofocus/>
                 </div>
-                <div class = "form-group">
-                    <label class = "control-label" for="date">
+<!--                <div class = "form-group">-->
+<!--                    <label class = "control-label" for="date">-->
+<!--                        Data-->
+<!--                    </label>-->
+<!--                    <input id="date" class = "form-control" th:field="${lesson.date}" required autofocus/>-->
+<!--                </div>-->
+
+                <div class="form-group ">
+                    <label class="control-label " for="date">
                         Data
                     </label>
-                    <input id="date" class = "form-control" th:field="${lesson.time}" required autofocus/>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar-check-o">
+                            </i>
+                        </div>
+                        <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text" autocomplete="off"/>
+                    </div>
                 </div>
+
                 <div class = "form-group">
                     <label class = "control-label" for="time">
                         godzina
@@ -65,6 +83,31 @@
 </div>
 </div>
 </div>
+
+
+
+<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+    $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'yyyy-mm-dd',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>
+
+
 
 
 </body>
