@@ -2,14 +2,19 @@ package com.example.projectSurf.dtos;
 
 import com.example.projectSurf.model.Instructor;
 import com.example.projectSurf.model.Student;
+import com.sun.istack.NotNull;
 
 import java.sql.Date;
 import java.sql.Time;
 
 public class LessonBookingDto {
+    @NotNull
     private String date;
+    @NotNull
     private String time;
+    @NotNull
     private Instructor instructor;
+    @NotNull
     private Student student;
 
     public LessonBookingDto() {

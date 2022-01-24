@@ -16,10 +16,4 @@ public class MainController {
         return "index";
     }
 
-
-    @GetMapping("/lesson1")
-    public String lesson1(){
-        return "lesson1";
-    }
-
 }

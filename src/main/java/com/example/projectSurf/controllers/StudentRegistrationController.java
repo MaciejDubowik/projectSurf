@@ -2,6 +2,7 @@ package com.example.projectSurf.controllers;
 
 import com.example.projectSurf.dtos.StudentRegistrationDto;
 import com.example.projectSurf.services.StudentService;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,12 @@ public class StudentRegistrationController {
 
     @PostMapping
     public String registerStudentAccount(@ModelAttribute("student") StudentRegistrationDto registrationDto){
-        studentService.save(registrationDto);
-        return "redirect:/registration?success";
+        try {
+            studentService.save(registrationDto);
+            return "redirect:/registration?success";
+        }catch (DuplicateKeyException e){
+            return "redirect:/registration?error";
+        }
     }
+
 }

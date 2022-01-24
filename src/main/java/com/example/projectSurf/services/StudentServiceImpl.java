@@ -6,6 +6,7 @@ import com.example.projectSurf.model.Student;
 import com.example.projectSurf.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,10 +31,6 @@ public class StudentServiceImpl implements StudentService {
 
     private StudentRepository studentRepository;
 
-//    @Autowired
-//    public StudentServiceImpl(@Lazy BCryptPasswordEncoder passwordEncoder) {
-//        this.passwordEncoder = passwordEncoder;
-//    }
 
 
     public StudentServiceImpl(StudentRepository studentRepository) {
@@ -41,20 +38,30 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student save(StudentRegistrationDto registrationDto) {
+    public Student save(StudentRegistrationDto registrationDto) throws DuplicateKeyException {
         Student student = new Student(registrationDto.getFirstName(), registrationDto.getLastName(), registrationDto.getMail(), registrationDto.getPhone(), passwordEncoder.encode(registrationDto.getPassword()), null);
+        if (emailExist(registrationDto.getMail())) {
+            throw new DuplicateKeyException("There is an account with that email address: "
+                    + registrationDto.getMail());
+        }
 
-    return studentRepository.save(student);
+        return studentRepository.save(student);
     }
+    private boolean emailExist(String email) {
+        return studentRepository.findByMail(email) != null;
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Student student = studentRepository.findByMail(username);
         if(student == null){
-            throw new UsernameNotFoundException("Invalid username or password");
+            throw new UsernameNotFoundException("Niepoprawny email lub hasło");
         }
         return new org.springframework.security.core.userdetails.User(student.getMail(), student.getPassword(), mapLessonsToAuthority(student.getLessons()));
     }
+
+
 
     private Collection<? extends GrantedAuthority> mapLessonsToAuthority(Collection<Lesson> lessons){
         return lessons.stream().map( lesson -> new SimpleGrantedAuthority(lesson.getDate().toString())).collect(Collectors.toList());

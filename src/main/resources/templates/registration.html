@@ -17,11 +17,11 @@
 
         <!-- Register Form -->
         <form th:action="@{/registration}" method="post" th:object="${student}">
-            <input id="firstName" class = "form-control" th:field="${student.firstName}" placeholder="Imie" required autofocus/>
-            <input id="lastName" class = "form-control" th:field="${student.lastName}" placeholder="Nazwisko" required autofocus/>
-            <input id="mail" class = "form-control" th:field="${student.mail}" placeholder="e-mail" required autofocus/>
-            <input id="phone" class = "form-control" th:field="${student.phone}" placeholder="telefon" required autofocus/>
-            <input id="password" class = "form-control" th:field="${student.password}" placeholder="haslo" required autofocus/>
+            <input id="firstName" type="text" class = "form-control" th:field="${student.firstName}" placeholder="Imie" required autofocus/>
+            <input id="lastName" type="text" class = "form-control" th:field="${student.lastName}" placeholder="Nazwisko" required autofocus/>
+            <input id="mail" type="email" class = "form-control" th:field="${student.mail}" placeholder="e-mail" required autofocus/>
+            <input id="phone" type="number" class = "form-control" th:field="${student.phone}" placeholder="telefon" required autofocus/>
+            <input id="password" type="password" class = "form-control" th:field="${student.password}" placeholder="haslo" required autofocus/>
             <input type="submit" class="fadeIn fourth" name="login-submit" id="login-submit" value="Zarejestruj" />
         </form>
 

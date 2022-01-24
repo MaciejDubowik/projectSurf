@@ -1,15 +1,20 @@
 package com.example.projectSurf.dtos;
 
 import com.example.projectSurf.model.Student;
+import com.sun.istack.NotNull;
 import org.springframework.stereotype.Component;
 
 
 public class StudentRegistrationDto {
-
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
+    @NotNull
     private String mail;
+    @NotNull
     private int phone;
+    @NotNull
     private String password;
 
     public StudentRegistrationDto(){}

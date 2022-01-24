@@ -45,6 +45,10 @@ JPAStreamer jpaStreamer;
         return lessonList1;
     }
 
+    public void delete(int id){
+        lessonRepository.deleteById(id);
+    }
+
 
     @Override
     public Lesson saveLesson(LessonBookingDto bookingDto) {
