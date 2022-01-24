@@ -50,6 +50,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.speedment.jpastreamer</groupId>
+			<artifactId>jpastreamer-core</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.speedment.jpastreamer.integration.spring/spring-boot-jpastreamer-autoconfigure -->
+		<dependency>
+			<groupId>com.speedment.jpastreamer.integration.spring</groupId>
+			<artifactId>spring-boot-jpastreamer-autoconfigure</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -87,6 +98,28 @@
 					</excludes>
 				</configuration>
 			</plugin>
+	<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+			<version>3.2.0</version>
+			<executions>
+				<execution>
+					<phase>generate-sources</phase>
+					<goals>
+						<goal>add-source</goal>
+					</goals>
+					<configuration>
+						<sources>
+							<source>
+
+								${project.build.directory}/generated-sources/annotations
+
+							</source>
+						</sources>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
 		</plugins>
 	</build>
 

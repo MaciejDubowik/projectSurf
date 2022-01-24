@@ -1,6 +1,7 @@
 package com.example.projectSurf.config;
 
 import com.example.projectSurf.services.StudentService;
+import com.speedment.jpastreamer.application.JPAStreamer;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private StudentService studentService;
+
 
 
     @Bean
@@ -45,10 +47,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
                         "/registration**",
+                        "/index",
                         "/admin**",
                         "/js/**",
                         "/css/**",
-                        "/img/**").permitAll()
+                        "/assets/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

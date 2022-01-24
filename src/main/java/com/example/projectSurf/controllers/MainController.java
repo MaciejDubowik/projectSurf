@@ -11,4 +11,15 @@ public class MainController {
         return "login";
     }
 
+    @GetMapping("/index")
+    public String index(){
+        return "index";
+    }
+
+
+    @GetMapping("/lesson1")
+    public String lesson1(){
+        return "lesson1";
+    }
+
 }

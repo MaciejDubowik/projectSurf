@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentRegistrationController {
     private StudentService studentService;
 
+
     public StudentRegistrationController(StudentService studentService) {
         this.studentService = studentService;
     }
@@ -18,6 +19,8 @@ public class StudentRegistrationController {
     public StudentRegistrationDto registrationDto(){
         return new StudentRegistrationDto();
     }
+
+
 
     @GetMapping
     public String showRegistrationForm(){

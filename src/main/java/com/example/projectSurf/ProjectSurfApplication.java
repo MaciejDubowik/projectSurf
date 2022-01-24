@@ -32,13 +32,8 @@ public class ProjectSurfApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		//jesli jest polaczenie z baza danych to wyswietli wiersz
-		List<Student> creditTableList = repo.findAll();
-//		List<Lesson> lessonList = lessonRepo.findAll();
-		List<Lesson> lessonList = lessonService.listAll();
-//		creditTableList.forEach(System.out::println);
 
-		lessonList.forEach(System.out::println);
+
 
 	}
 }

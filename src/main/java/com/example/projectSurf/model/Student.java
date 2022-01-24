@@ -24,18 +24,18 @@ public class Student {
         this.lessons = lessons;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Student{" +
-//                "student_id=" + student_id +
-//                ", name='" + firstName + '\'' +
-//                ", surname='" + lastName + '\'' +
-//                ", mail='" + mail + '\'' +
-//                ", phone=" + phone +
-//                ", password='" + password + '\'' +
-//                ", lessons=" + lessons +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "student_id=" + student_id +
+                ", name='" + firstName + '\'' +
+                ", surname='" + lastName + '\'' +
+                ", mail='" + mail + '\'' +
+                ", phone=" + phone +
+                ", password='" + password + '\'' +
+                ", lessons=" + lessons +
+                '}';
+    }
 
     private Collection<Lesson> lessons;
 

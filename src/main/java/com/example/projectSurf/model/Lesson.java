@@ -22,8 +22,7 @@ public class Lesson {
         this.students = students;
     }
 
-    public Lesson(String lesson_student) {
-    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

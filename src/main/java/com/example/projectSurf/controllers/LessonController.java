@@ -33,27 +33,6 @@ public class LessonController {
         this.lessonService = lessonService;
         this.studentRepository = studentRepository;
     }
-//
-//    public LessonController(StudentRepository studentRepository) {
-//        this.studentRepository = studentRepository;
-//    }
-
-
-
-//    @Autowired
-//    public LessonController(LessonService lessonService) {
-//        this.lessonService = lessonService;
-//    }
-
-    //    public LessonController(StudentService studentService) {
-//        this.studentService = studentService;
-//    }
-//
-//    @ModelAttribute("student")
-//    public StudentRegistrationDto registrationDto(){
-//        return new StudentRegistrationDto();
-//    }
-
 
 
 
